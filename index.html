@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; connect-src 'none'; media-src 'self'; worker-src 'none'; child-src 'none'; frame-src 'none';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Know | Students</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="page-ambient" aria-hidden="true">
+        <span class="ambient-line line-one"></span>
+        <span class="ambient-line line-two"></span>
+        <span class="ambient-line line-three"></span>
+        <div class="welcome-trail trail-one">Welcome</div>
+        <div class="welcome-trail trail-two">How can I help you?</div>
+        <div class="robi-stage">
+            <div class="robi-orbit orbit-one"></div>
+            <div class="robi-orbit orbit-two"></div>
+            <div class="robi-orbit orbit-three"></div>
+            <div class="speech-bubble bubble-welcome">Welcome</div>
+            <div class="speech-bubble bubble-help">Hey, how can I help you?</div>
+            <div class="robi-shell">
+                <img src="robi-robo.png" alt="Robi">
+                <span class="robi-smile"></span>
+            </div>
+        </div>
+    </div>
+    <!-- Robi Chatbot Integration -->
+    <div id="robi-chatbot-wrapper">
+
+        <!-- Chat Window -->
+        <div id="robi-chat-window" class="robi-scale-down">
+            <div class="robi-chat-header">
+                <div class="robi-avatar-container">
+                    <img src="robi-robo.png" alt="Robi Avatar" class="robi-avatar">
+                </div>
+                <div class="robi-header-info">
+                    <h3>Robi</h3>
+                    <p>Your Study Assistant</p>
+                </div>
+                <button id="robi-close-btn" aria-label="Close Chat">&times;</button>
+            </div>
+
+            <div id="robi-chat-messages">
+                <div class="robi-message robi-bot">
+                    <div class="robi-bubble">Hello! I'm Robi. What subject are we focusing on today?</div>
+                </div>
+            </div>
+
+            <div class="robi-chat-input-area">
+                <input type="text" id="robi-user-input" placeholder="Ask Robi a study question..." autocomplete="off">
+                <button id="robi-send-btn" aria-label="Send Message">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="white">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Floating Trigger Button -->
+        <button id="robi-trigger-btn">
+            <div class="robi-trigger-ring"></div>
+            <img src="robi-robo.png" alt="Open Robi Chat">
+        </button>
+
+    </div>
+
+    <header>
+        <nav aria-label="Main navigation">
+            <div class="logo">Do You Know</div>
+
+            <button class="hamburger" id="hamburgerBtn" type="button" aria-label="Toggle navigation"
+                aria-expanded="false" aria-controls="navLinks">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul id="navLinks">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">Notice Board</a></li>
+                <li><a href="#">Query</a></li>
+                <li>
+                    <button id="darkModeToggle" type="button" aria-label="Switch to dark mode">
+                        <span class="mode-icon" aria-hidden="true">&#9790;</span>
+                        <span class="mode-text">Dark Mode</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero hero-animate">
+            <p class="hero-eyebrow">Student Helping Portal</p>
+            <h1>Empowering Students</h1>
+            <p>Your centralized hub for study materials, exam guidance, and campus opportunities.</p>
+            <div class="hero-stats" aria-label="Portal highlights">
+                <span class="stat-pill"> Engineering Notes</span>
+                <span class="stat-pill">Study Resources</span>
+                <span class="stat-pill">Future Guidance</span>
+            </div>
+            <div class="search-container">
+                <span class="search-icon" aria-hidden="true">&#128269;</span>
+                <input type="text" id="searchInput" placeholder="Search for papers, notes, exam guides..."
+                    aria-label="Search resources">
+                <button class="voice-search-btn" id="voiceSearchBtn" type="button" aria-label="Start voice search">
+                    <span aria-hidden="true">&#127908;</span>
+                </button>
+            </div>
+            <div class="voice-assistant" id="voiceAssistant" aria-live="polite">
+                <img src="robi-robo.png" alt="Robi">
+                <div class="voice-message">
+                    <strong>Robi Voice Search</strong>
+                    <span id="voiceStatus">Tap the mic and tell me what to find.</span>
+                </div>
+                <span class="voice-wave" aria-hidden="true"></span>
+                <span class="voice-wave wave-two" aria-hidden="true"></span>
+            </div>
+        </section>
+
+        <section class="notice-board" aria-label="Notice board">
+            <div class="notice-track">
+                <span class="notice-dot" aria-hidden="true"></span>
+                Notice: | Upcoming news is posted in the post section!
+            </div>
+        </section>
+
+        <section class="features" id="resourceList" aria-label="Student resources">
+            <article class="card resource-item reveal-card">
+                <div class="card-icon" aria-hidden="true">&#128221;</div>
+                <h2>Exam Prep</h2>
+                <p>Access previous year question papers and notes.</p>
+                <button class="magic-open" id="examToggle" type="button" aria-expanded="false"
+                    aria-controls="examPanel">
+                    <span class="button-star star-one" aria-hidden="true">&#10022;</span>
+                    <span class="button-star star-two" aria-hidden="true">&#10022;</span>
+                    <span class="button-star star-three" aria-hidden="true">&#10022;</span>
+                    <span class="button-label">Question Papers</span>
+                </button>
+            </article>
+            <article class="card resource-item study-card reveal-card">
+                <div class="card-icon" aria-hidden="true">&#128218;</div>
+                <h2>Study Materials</h2>
+                <p>Open engineering notes, guides, and helpful resources for your subjects.</p>
+
+                <button class="magic-open" id="notesToggle" type="button" aria-expanded="false"
+                    aria-controls="notesPanel">
+                    <span class="button-star star-one" aria-hidden="true">&#10022;</span>
+                    <span class="button-star star-two" aria-hidden="true">&#10022;</span>
+                    <span class="button-star star-three" aria-hidden="true">&#10022;</span>
+                    <span class="button-label">Engineering Notes</span>
+                </button>
+
+                <div class="notes-panel" id="notesPanel" aria-hidden="true">
+                    <a class="note-link" href="study-materials/ep-unit-2-notes-continuous-part-2.pdf" target="_blank"
+                        rel="noopener noreferrer">
+                        <span class="note-title">EP Unit 2 Notes Continuous (Part 2)</span>
+                        <span class="note-meta">Engineering Physics</span>
+                    </a>
+                    <a class="note-link" href="study-materials/cnss-unit-2-notes.pdf" target="_blank"
+                        rel="noopener noreferrer">
+                        <span class="note-title">CNSS Unit 2 Notes</span>
+                        <span class="note-meta">Computer Network &amp; Security</span>
+                    </a>
+                    <a class="note-link" href="study-materials/cnss-unit-1-notes.pdf" target="_blank"
+                        rel="noopener noreferrer">
+                        <span class="note-title">CNSS Unit 1 Notes</span>
+                        <span class="note-meta">Computer Network &amp; Security</span>
+                    </a>
+                    <a class="note-link" href="study-materials/lecture-ipv4.pdf" target="_blank"
+                        rel="noopener noreferrer">
+                        <span class="note-title">Lecture IPv4</span>
+                        <span class="note-meta">Networking Notes</span>
+                    </a>
+                    <a class="note-link" href="study-materials/icc-lecture-unit-2.pdf" target="_blank"
+                        rel="noopener noreferrer">
+                        <span class="note-title">ICC Lecture Unit 2</span>
+                        <span class="note-meta">Indian Culture &amp; Constitution</span>
+                    </a>
+                    <a class="note-link" href="study-materials/indian-culture-unit-1-detailed-notes.pdf" target="_blank"
+                        rel="noopener noreferrer">
+                        <span class="note-title">Indian Culture Unit 1 Detailed Notes</span>
+                        <span class="note-meta">Complete Detailed Notes</span>
+                    </a>
+                </div>
+            </article>
+            <article class="card resource-item reveal-card">
+                <div class="card-icon" aria-hidden="true">&#127919;</div>
+                <h2>Roadmaps for College Students</h2>
+                <p>Explore career guidance, scholarship updates, skill paths, and campus opportunities.</p>
+            </article>
+            <article class="card resource-item reveal-card">
+                <div class="card-icon" area-hiddon="true">&#128591;</div>
+                <h2>Any enquiry and contact</h2>
+                <p>For any complaint and problem fetching to exploring the website</p>
+            </article>
+        </section>
+
+        <section class="roadmap-section reveal-card" aria-labelledby="roadmapTitle">
+            <p class="section-eyebrow">Career Path</p>
+            <h2 id="roadmapTitle">Programming Roadmap</h2>
+            <div class="roadmap-path" aria-label="Programming learning roadmap">
+                <div class="roadmap-node">Learn C Programming</div>
+                <div class="roadmap-line" aria-hidden="true"></div>
+                <div class="roadmap-node">Data Structures</div>
+                <div class="roadmap-line" aria-hidden="true"></div>
+                <div class="roadmap-node">Learn Python</div>
+            </div>
+        </section>
+
+        <section class="portal-network reveal-card scissor-reveal" id="portalNetwork"
+            aria-labelledby="portalNetworkTitle">
+            <div class="cut-ribbon" aria-hidden="true">
+                <span class="scissor scissor-left">&#9986;</span>
+                <span class="cut-line"></span>
+                <span class="scissor scissor-right">&#9986;</span>
+            </div>
+
+            <div class="portal-network-shell">
+                <div class="network-column">
+                    <p class="section-eyebrow">Star Events</p>
+                    <h2 id="portalNetworkTitle">Student Opportunities</h2>
+                    <ul class="network-list">
+                        <li><a href="#">Snap India</a></li>
+                        <li><a href="#">Electhon</a></li>
+                        <li><a href="#">Police Hackathon</a></li>
+                        <li><a href="#">Inspire Hackathon</a></li>
+                        <li><a href="#">Ideathon</a></li>
+                        <li><a href="#">Dishathon</a></li>
+                    </ul>
+                </div>
+
+                <div class="network-column">
+                    <p class="section-eyebrow">Connect</p>
+                    <h2>Community Links</h2>
+                    <ul class="network-list social-list">
+                        <li><a href="https://www.facebook.com/share/1JkYrKvgJ5/"><span aria-hidden="true">f</span>
+                                Facebook</a></li>
+                        <li><a
+                                href="https://www.linkedin.com/in/amarnath-bareth-bb6084363?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><span
+                                    aria-hidden="true">in</span> LinkedIn</a></li>
+                        <li><a href="https://www.instagram.com/official__amar__07_?igsh=ODBlem5ueTZpZ2Vj"><span
+                                    aria-hidden="true">&#9678;</span> Instagram</a></li>
+                        <li><a href="#"><span aria-hidden="true">X</span> Twitter</a></li>
+                        <li><a href="https://t.me/code_066"><span aria-hidden="true">&#9992;</span> Telegram</a></li>
+                        <li><a href="https://whatsapp.com/channel/0029Vb96DEd6buMMbiDlQq3u"><span
+                                    aria-hidden="true">&#9743;</span> WhatsApp</a></li>
+                    </ul>
+                </div>
+
+                <div class="network-column portal-profile">
+                    <div class="portal-mark">DYK</div>
+                    <h2>Do You Know Student Portal</h2>
+                    <p>Engineering notes, exam prep, voice search, roadmaps, and student updates in one place.</p>
+
+                    <div class="profile-block">
+                        <h3>Student Support</h3>
+                        <p>Notes, question papers, study materials, and career roadmaps for college students.</p>
+                    </div>
+                    <div class="profile-block">
+                        <h3>For Inquiry</h3>
+                        <p><a href="#">studenthelp@doyouknow.local</a></p>
+                    </div>
+                    <div class="profile-block">
+                        <h3>Built By</h3>
+                        <p> ❤️Amarnath Bareth</p>
+                    </div>
+                    <div class="profile-block">
+                        <h3>Version</h3>
+                        <p>1.0.0</p>
+                    </div>
+                    <div class="profile-block">
+                        <h3>All Rights Reserved</h3>
+                        <p>&copy; 2026 Do You Know Portal. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
